@@ -1,0 +1,4 @@
+colored==1.4.3
+httpx==0.23.0
+pystyle==2.9
+randomuser==1.6
