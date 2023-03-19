@@ -1,5 +1,5 @@
 from colored import attr, fg
-from pystyle import Center, Colors, Colorate
+from ui import Center, Colors, Colorate
 
 
 #! Colored code
