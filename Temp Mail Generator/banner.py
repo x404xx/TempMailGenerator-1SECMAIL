@@ -23,8 +23,8 @@ title = r'''
   █  █▄▄ █ ▀ █ █▀  █ ▀ █ █▀█ █ █▄▄ ▄
 '''
 txt = r'BY: ══ᵂʰᵒᴬᴹ!'
-bann = (Colorate.Diagonal(Colors.red_to_yellow, Center.XCenter(title), True))
-text = (Colorate.Horizontal(Colors.black_to_white, Center.XCenter(txt), True))
+bann = (Colorate.Diagonal(Colors.red_to_yellow, Center.XCenter(title)))
+text = (Colorate.Horizontal(Colors.black_to_white, Center.XCenter(txt)))
 
 logo = f'''
 {bann}
