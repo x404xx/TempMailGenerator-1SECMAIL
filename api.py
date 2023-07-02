@@ -61,7 +61,8 @@ class EmailGenerator:
         return answers['domain']
 
     def random_email(self):
-        username = self.__user_info()['username']
+        user_info = self.__user_info()
+        username = user_info['username']
         domain = random.choice(self.DOMAIN_CHOICES)
         return username, domain
 
