@@ -192,7 +192,7 @@ class TestRegistration(EmailGenerator):
         #! Optional (Uncomment if you want to use it)
         # delete_mailbox = self.get_user_input('Do you want to clear the mailbox? (y/n): ', ['y', 'n'])
         # if delete_mailbox == 'y':
-        #     if self.delete_mailbox():
+        #     if self.delete_mailbox(username, domain):
         #         print(f'The mailbox associated with the email address {Colors.GREEN}{email}{Colors.END} has been deleted!')
         #     else:
         #         print(f'Failed to delete the mailbox associated with the email address {Colors.RED}{email}{Colors.END}')
