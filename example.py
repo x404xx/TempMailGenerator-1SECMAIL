@@ -200,8 +200,6 @@ class TestRegistration(EmailGenerator):
         # elif delete_mailbox == 'n':
         #     print(f'{Colors.RED}The deletion of the mailbox has been skipped!{Colors.END}')
 
-        self.close_session()
-
 
 if __name__ == '__main__':
     os.system('cls' if os.name == 'nt' else 'clear')

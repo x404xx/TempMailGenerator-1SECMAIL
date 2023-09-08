@@ -11,23 +11,19 @@ import inquirer
 
 class EmailGenerator:
     FILENAME = 'email.json'
-    DOMAIN_CHOICES = [
-        '1secmail.com',
-        '1secmail.org',
-        '1secmail.net',
-        'kzccv.com',
-        'qiott.com',
-        'wuuvo.com',
-        'icznn.com',
-        'ezztt.com'
-    ]
 
     def __init__(self):
         self.client = httpx.Client(timeout=random.uniform(10, 15))
 
-    def close_session(self):
+    def __del__(self):
         self.client.close()
         print('\nSession has been closed!\n')
+
+    @property
+    def __domain_list(self):
+        url = 'https://www.1secmail.com/api/v1/?action=getDomainList'
+        response = self.client.get(url)
+        return response.json()
 
     def __user_info(self):
         url = 'https://randomuser.me/api/?nat=US&password=upper,lower,number,10-16'
@@ -55,15 +51,14 @@ class EmailGenerator:
 
     def __get_domain(self):
         questions = [
-            inquirer.List('domain', message="Which domain do you want?", choices=self.DOMAIN_CHOICES)
+            inquirer.List('domain', message="Which domain do you want?", choices=self.__domain_list)
         ]
         answers = inquirer.prompt(questions)
         return answers['domain']
 
     def random_email(self):
-        user_info = self.__user_info()
-        username = user_info['username']
-        domain = random.choice(self.DOMAIN_CHOICES)
+        username = self.__user_info()['username']
+        domain = random.choice(self.__domain_list)
         return username, domain
 
     def custom_email(self):
